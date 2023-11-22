@@ -1,0 +1,928 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="car_cad" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="Chassis_color"> 
+      <visual>
+      <material>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+          <diffuse>0.0 1.0 0.0 1.0</diffuse>
+          <specular>0 0.1 0 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="Body_color">
+      <visual>
+      <material>
+          <ambient>0.694117647058824 0.0980392156862745 0.0980392156862745 1</ambient>
+          <diffuse>0.694117647058824 0.0980392156862745 0.0980392156862745 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="Lidar_color">
+      <visual>
+      <material>
+          <ambient>0.0 0.0 1.0 1.0</ambient>
+          <diffuse>0.0 0.0 1.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="Axle1_color">
+      <visual>
+      <material>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+          <diffuse>1.0 1.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="Wheel1_color">
+      <visual>
+      <material>
+          <ambient>0.0 0.0 0.0 1.0</ambient>
+          <diffuse>0.0 0.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+      </xacro:macro>
+
+  <xacro:macro name="Axle2_color">
+      <visual>
+      <material>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+          <diffuse>1.0 1.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+      </xacro:macro>
+
+  <xacro:macro name="Wheel2_color">
+      <visual>
+      <material>
+          <ambient>0.0 0.0 0.0 1.0</ambient>
+          <diffuse>0.0 0.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+
+  </xacro:macro>
+  <xacro:macro name="Axle3_color">
+      <visual>
+      <material>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+          <diffuse>1.0 1.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="Wheel3_color">
+      <visual>
+      <material>
+          <ambient>0.0 0.0 0.0 1.0</ambient>
+          <diffuse>0.0 0.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="Axle4_color">
+      <visual>
+      <material>
+          <ambient>1.0 1.0 0.0 1.0</ambient>
+          <diffuse>1.0 1.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="Wheel4_color">
+      <visual>
+      <material>
+          <ambient>0.0 0.0 0.0 1.0</ambient>
+          <diffuse>0.0 0.0 0.0 1.0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+
+
+  <!-- Add a "Dummy Link" before Chassis Link in rviz -->
+  # Add this before base link
+  <link name="dummy_link"></link>
+
+
+  <link
+    name="Chassis">
+    <inertial>
+      <origin
+        xyz="-0.00223376867240215 -0.14850894281352 0.130161580125502"
+        rpy="0 0 0" />
+      <mass
+        value="6.08553841689872" />
+      <inertia
+        ixx="0.0327838097565098"
+        ixy="-0.00464401350152716"
+        ixz="2.55873833597028E-18"
+        iyy="0.437822564603667"
+        iyz="-3.31234935748399E-19"
+        izz="0.426925675082443" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0 1.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    # Add this after base link
+  <joint name="dummy_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <parent link="dummy_link"/>
+      <child link="Chassis"/>
+  </joint>
+
+
+  <link
+    name="Body">
+    <inertial>
+      <origin
+        xyz="0.000380655529674728 -0.12547593261315 -0.153096829161281"
+        rpy="0 0 0" />
+      <mass
+        value="23.622200921662" />
+      <inertia
+        ixx="1.22101379159695"
+        ixy="-0.000411107595272404"
+        ixz="-0.000784541661557035"
+        iyy="1.49733873565078"
+        iyz="-0.0980498403480555"
+        izz="0.609014431921698" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.694117647058824 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Body1"
+    type="fixed">
+    <origin
+      xyz="0.0315164318914847 -0.129348476976945 -0.163009284986669"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Body" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <!-- Adding IMU -->
+  <gazebo reference="Chassis">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>Chassis</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>Chassis</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+  <!-- Lidar Link and gazebo reference-->
+  <link
+    name="Lidar">
+    <!-- <inertial>
+      <origin
+        xyz="-0.000242779984222619 0.0143774916405448 -8.92760670667681E-08"
+        rpy="1 1 0" />
+      <mass
+        value="0.00945296465238527" />
+      <inertia
+        ixx="6.54654507345966E-07"
+        ixy="-2.35260896866165E-08"
+        ixz="1.80483782041912E-11"
+        iyy="7.43556524129556E-07"
+        iyz="-8.64998487802385E-12"
+        izz="6.97184585454423E-07" />
+    </inertial> -->
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="0.04"/>
+      </geometry>
+      <!-- <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Lidar.STL" />
+      </geometry> -->
+      <material
+        name="red">
+        <color
+          rgba="0.0 0.0 0.8 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <!-- <origin
+        xyz="0 0 0"
+        rpy="0 0 0" /> -->
+      <geometry>
+        <cylinder radius="0.05" length="0.04"/>
+        <!-- <mesh
+          filename="package://car_cad/meshes/Lidar.STL" /> -->
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="Lidar1"
+    type="fixed">
+    <origin
+      xyz="-0.09716 -0.12795 0.12"
+      rpy="0 0 1.5708" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Lidar" />
+    <!-- <axis
+      xyz="0 0 0" /> -->
+  </joint>
+
+  <gazebo reference="Lidar">
+  <sensor name="lidar" type="ray">
+    <pose>0.0 0.0 0.0 0 0 0</pose>
+    <always_on>true</always_on>
+    <visualize>true</visualize>
+    <update_rate>5</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1.00000</resolution>
+          <min_angle>0.000000</min_angle>
+          <max_angle>6.280000</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.120000</min>
+        <max>3.5</max>
+        <resolution>0.015000</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </ray>
+    <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <remapping>~/out:=scan</remapping>
+      </ros>
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>Lidar</frame_name>
+    </plugin>
+  </sensor>
+  </gazebo>
+  
+  <link
+    name="Axle1">
+    <inertial>
+      <origin
+        xyz="-0.0558539329391641 -0.111957315497147 5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.165364325621772" />
+      <inertia
+        ixx="0.000342944657043841"
+        ixy="-0.000288302213845359"
+        ixz="3.33730981218194E-19"
+        iyy="0.000673625405085605"
+        iyz="2.01593841446523E-19"
+        izz="0.00100328754597061" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1.0 1.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="AxleJoint1"
+    type="revolute">
+    <origin
+      xyz="-0.28116 -0.21906 -0.10094"
+      rpy="1.5708 0 1.6084" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Axle1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.047"
+      upper="1.047"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Wheel1">
+    <inertial>
+      <origin
+        xyz="-0.000124289697016056 -0.000814880703857074 -0.0488440441093753"
+        rpy="0 0 0" />
+      <mass
+        value="1.79219678370578" />
+      <inertia
+        ixx="0.00510596345572759"
+        ixy="0.00012023485267183"
+        ixz="1.24846562510615E-05"
+        iyy="0.00555368585791158"
+        iyz="1.62933654548786E-05"
+        izz="0.00924845152548034" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0 0.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WheelJoint1"
+    type="continuous">
+    <origin
+      xyz="-0.10632 -0.14317 0"
+      rpy="1.5708 -1.3864 1.5708" />
+    <parent
+      link="Axle1" />
+    <child
+      link="Wheel1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="100"
+      upper="1000"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="Axle2">
+    <inertial>
+      <origin
+        xyz="-0.0558539329391641 -0.111957315497148 2.22044604925031E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.165364325621772" />
+      <inertia
+        ixx="0.000342944657043841"
+        ixy="-0.000288302213845359"
+        ixz="3.09421135631996E-18"
+        iyy="0.000673625405085604"
+        iyz="1.35694678150139E-18"
+        izz="0.00100328754597061" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1.0 1.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="AxleJoint2"
+    type="revolute">
+    <origin
+      xyz="-0.28116 -0.041262 -0.10094"
+      rpy="1.5708 0 -1.5831" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Axle2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.047"
+      upper="1.047"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Wheel2">
+    <inertial>
+      <origin
+        xyz="-0.000124289697016167 -0.000814880703856879 -0.0399247884726198"
+        rpy="0 0 0" />
+      <mass
+        value="1.79219678370578" />
+      <inertia
+        ixx="0.00510598221987398"
+        ixy="0.000120237154656982"
+        ixz="1.24846537357343E-05"
+        iyy="0.00555366265587753"
+        iyz="1.62939094646877E-05"
+        izz="0.00924844793072547" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0 0.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WheelJoint2"
+    type="continuous">
+    <origin
+      xyz="-0.11524 -0.14317 0"
+      rpy="0 1.5708 0" />
+    <parent
+      link="Axle2" />
+    <child
+      link="Wheel2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="100"
+      upper="1000"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="Axle3">
+    <inertial>
+      <origin
+        xyz="-0.0558539329391641 -0.111957315497147 1.66533453693773E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.165364325621772" />
+      <inertia
+        ixx="0.000342944657043841"
+        ixy="-0.000288302213845359"
+        ixz="2.23000893066292E-18"
+        iyy="0.000673625405085605"
+        iyz="9.47773249098738E-19"
+        izz="0.00100328754597061" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1.0 1.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="AxleJoint3"
+    type="fixed">
+    <origin
+      xyz="0.2525 -0.21906 -0.10094"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Axle3" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Wheel3">
+    <inertial>
+      <origin
+        xyz="-0.00012428969701811 -0.00081488070385749 -0.0399363468416864"
+        rpy="0 0 0" />
+      <mass
+        value="1.79219678370578" />
+      <inertia
+        ixx="0.0051059634557276"
+        ixy="0.000120234852671832"
+        ixz="1.24846562510982E-05"
+        iyy="0.00555368585791158"
+        iyz="1.62933654548732E-05"
+        izz="0.00924845152548033" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0 0.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WheelJoint3"
+    type="continuous">
+    <origin
+      xyz="-0.11523 -0.14317 0"
+      rpy="0 1.5708 0" />
+    <parent
+      link="Axle3" />
+    <child
+      link="Wheel3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="100"
+      upper="1000"
+      effort="100"
+      velocity="100" />
+  </joint>
+  <link
+    name="Axle4">
+    <inertial>
+      <origin
+        xyz="-0.0558539329391641 0.111957315497148 -5.55111512312578E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.165364325621772" />
+      <inertia
+        ixx="0.000342944657043841"
+        ixy="0.000288302213845359"
+        ixz="-6.8605262086319E-18"
+        iyy="0.000673625405085604"
+        iyz="2.97772235266786E-18"
+        izz="0.00100328754597061" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1.0 1.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Axle4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="AxleJoint4"
+    type="fixed">
+    <origin
+      xyz="0.2525 -0.041262 -0.10094"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Axle4" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Wheel4">
+    <inertial>
+      <origin
+        xyz="-0.000124289697016056 -0.000814880703856713 -0.0399363468416875"
+        rpy="0 0 0" />
+      <mass
+        value="1.79219678370578" />
+      <inertia
+        ixx="0.00510596345572759"
+        ixy="0.000120234852671831"
+        ixz="1.24846562510493E-05"
+        iyy="0.00555368585791157"
+        iyz="1.62933654548396E-05"
+        izz="0.00924845152548034" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0 0.0 0.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_cad/meshes/Wheel4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="WheelJoint4"
+    type="continuous">
+    <origin
+      xyz="-0.11523 0.14317 0"
+      rpy="-1.5708 0.31929 -1.5708" />
+    <parent
+      link="Axle4" />
+    <child
+      link="Wheel4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="100"
+      upper="1000"
+      effort="100"
+      velocity="100" />
+  </joint>
+
+  
+  <!-- Adding Controllers -->
+  <ros2_control name="GazeboSystem" type="system">
+  <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+  # Velocity Controllers
+
+  <joint name="WheelJoint1">
+      <command_interface name="velocity">
+          <param name="min">-1000.0</param>
+          <param name="max">1000.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="WheelJoint2">
+      <command_interface name="velocity">
+          <param name="min">-1000.0</param>
+          <param name="max">1000.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="WheelJoint3">
+      <command_interface name="velocity">
+          <param name="min">-1000.0</param>
+          <param name="max">1000.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="WheelJoint4">
+      <command_interface name="velocity">
+          <param name="min">-1000.0</param>
+          <param name="max">1000.0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  # Position Controller
+  <joint name="AxleJoint1">
+      <command_interface name="position">
+          <param name="min">-1.047</param>
+          <param name="max">1.047</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="AxleJoint2">
+      <command_interface name="position">
+          <param name="min">-1.047</param>
+          <param name="max">1.047</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  </ros2_control>
+
+<!-- Gazebo plugin for the controller -->
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(find car_cad)/config/control.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+<!-- Gazebo ogr color reference -->
+  <gazebo reference="Chassis">
+    <xacro:Chassis_color />
+  </gazebo>
+
+  <gazebo reference="Body">
+    <xacro:Body_color />
+  </gazebo>
+
+  <gazebo reference="Lidar">
+    <xacro:Lidar_color />
+  </gazebo>
+
+  <gazebo reference="Axle1">
+    <xacro:Axle1_color />
+  </gazebo>
+
+  <gazebo reference="Wheel1">
+    <xacro:Wheel1_color />
+  </gazebo>
+
+  <gazebo reference="Axle2">
+    <xacro:Axle2_color />
+  </gazebo>
+
+  <gazebo reference="Wheel2">
+    <xacro:Wheel2_color />
+  </gazebo>
+
+  <gazebo reference="Axle3">
+    <xacro:Axle3_color />
+  </gazebo>
+
+  <gazebo reference="Wheel3">
+    <xacro:Wheel3_color />
+  </gazebo> 
+
+  <gazebo reference="Axle4">
+    <xacro:Axle4_color />
+  </gazebo>
+
+  <gazebo reference="Wheel4">
+    <xacro:Wheel4_color />
+  </gazebo>
+  
+</robot>

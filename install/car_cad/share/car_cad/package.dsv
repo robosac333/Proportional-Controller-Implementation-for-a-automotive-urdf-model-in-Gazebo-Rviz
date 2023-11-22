@@ -1,0 +1,11 @@
+source;share/car_cad/hook/cmake_prefix_path.ps1
+source;share/car_cad/hook/cmake_prefix_path.dsv
+source;share/car_cad/hook/cmake_prefix_path.sh
+source;share/car_cad/hook/pythonpath.ps1
+source;share/car_cad/hook/pythonpath.dsv
+source;share/car_cad/hook/pythonpath.sh
+source;share/car_cad/local_setup.bash
+source;share/car_cad/local_setup.dsv
+source;share/car_cad/local_setup.ps1
+source;share/car_cad/local_setup.sh
+source;share/car_cad/local_setup.zsh
