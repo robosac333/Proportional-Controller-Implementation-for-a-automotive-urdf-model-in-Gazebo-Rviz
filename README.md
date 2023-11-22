@@ -6,19 +6,19 @@ Implemented a proportional controller for a car in ROS2
 
    - Launches robot+mounted lidar in a rviz/basic_display configuration in RViz
    - Used to check and verify visualization
-   - Command to launch:"ros2 launch car_cad display.launch"
+   - Command to launch:('ros2 launch car_cad display.launch')
 
 #gazebo.launch
 
    - Launches just the robot in a empty gazebo world
    - Used to verify robot spawning in gazebo
-   - Command to launch:"ros2 launch car_cad gazebo.launch"
+   - Command to launch:('ros2 launch car_cad gazebo.launch')
 
 #teleop.launch
 
   - Launches robot+lidar in the competition_arena world, with gazebo sim paused
   - Used with car_teleop package to control the car using a keyboard
-  - Command to launch:"roslaunch robot_urdf teleop.launch"
+  - Command to launch:('roslaunch robot_urdf teleop.launch')
   - It also launches an rviz window which already where lidar scans are visualized
   - Unpause gazebo sim to solve error on RVIZ
 
@@ -26,11 +26,11 @@ Implemented a proportional controller for a car in ROS2
 
   - Launches robot+lidar in the empty world, with gazebo sim paused
   - Used with open_loop_controller package to make the robot run in a straight line
-  - Command to launch:"ros2 launch car_cad subscriber.launch"
+  - Command to launch:('ros2 launch car_cad subscriber.launch')
 
 #How to build
 
-  - cd to workspace folder and run "colcon build"
+  - cd to workspace folder and run ('colcon build')
   - if everything builds successfully (unless you have dependency issues), you can run any launch files
   - 
 #How to Use
